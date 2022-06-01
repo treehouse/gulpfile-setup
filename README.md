@@ -1,1 +1,1 @@
-# gulpfile-setup
+![](./assets/gulpfile-setup-logo.png)
