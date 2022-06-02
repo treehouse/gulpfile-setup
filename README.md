@@ -8,9 +8,9 @@
 
 </div>
 
-<br>
-
 # <p align="center">⭐Gulpfile Setup using gulp.js⭐</p>
+
+<br><br>
 
 ## **Introduction to gulp.js**
 
