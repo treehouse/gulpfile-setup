@@ -8,7 +8,7 @@
 
 </div>
 
-# <p align="center">⭐Gulpfile Setup using gulp.js⭐</p>
+# <p align="center">Gulpfile Setup using gulp.js</p>
 
 <br><br>
 
