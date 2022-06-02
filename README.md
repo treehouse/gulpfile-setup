@@ -8,7 +8,7 @@
 
 </div>
 
-<h1 align="center">Gulpfile Setup using gulp.js</h1>
+# <p align="center">Gulpfile Setup using gulp.js</p>
 
 <br><br>
 
@@ -29,3 +29,5 @@ To get the most out of this content, it is advised you have a decent understandi
 <br><br>
 
 ## ⭐ Getting Started
+
+<img align="center" src="./assets/02-npm-init.png">
