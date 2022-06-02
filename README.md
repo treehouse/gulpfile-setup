@@ -59,7 +59,7 @@ Next, we'll need to install some packages for gulp via npm. This will create a `
 <br>
 Next, we'll want to install the npm packages we'll need to work with gulp. For this basic gulp setup, we'll be installing a package to compile our css to scss, add auto-prefixers to our compiled css, minify our css, and minify our javascrip. So here are the packages we'll be installing. I'll link the individual packages to their documentation on the gulp.js website:
 
-<br>
+<br><br>
 
 1. gulp
 2. [gulp-sass](https://www.npmjs.com/package/gulp-sass)
