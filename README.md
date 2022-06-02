@@ -1,11 +1,12 @@
-![](./assets/01-header.png)
+<img align="center" src="./assets/01-header.png">
+
 [Treehouse](https://teamtreehouse.com) - [Blog](https://teamtreehouse.com/blog) - [Twitter](https://twitter.com/treehouse) - [Youtube](https://www.youtube.com/gotreehouse) - [Instagram](https://www.instagram.com/teamtreehouse/) - [Linkedin](https://www.linkedin.com/school/treehouse-island-inc-/)
 
 # Gulpfile Setup using gulp.js
 
 <br>
 
-## ⭐ **Introduction to gulp.js**
+## <p align="center">⭐ **Introduction to gulp.js** ⭐</p>
 
 What is gulp? According to their homepage ([gulpjs.com](https://www.gulpjs.com)), it's _a toolkit to automate & enhance your workflow._ What exactly does that mean? Well, for medium to large sized projects you may want to have a folder with all your styles and scripts minified. This can significantly decrease file sizes and is usually best practice when deploying your app. Gulp can do all the hard work for you. It can throw all your final code into a new folder, minify it, even adding extra things to your make your code even better!
 
