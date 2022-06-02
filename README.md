@@ -4,11 +4,7 @@
 
 # Gulpfile Setup using gulp.js
 
-<br>
-
 ## <p align="center">⭐ **Introduction to gulp.js** ⭐</p>
-
-<br>
 
 What is gulp? According to their homepage ([gulpjs.com](https://www.gulpjs.com)), it's _a toolkit to automate & enhance your workflow._ What exactly does that mean? Well, for medium to large sized projects you may want to have a folder with all your styles and scripts minified. This can significantly decrease file sizes and is usually best practice when deploying your app. Gulp can do all the hard work for you. It can throw all your final code into a new folder, minify it, even adding extra things to your make your code even better!
 
