@@ -57,6 +57,7 @@ Next, we'll need to install some packages for gulp via npm. This will create a `
 ⭐ Pro tip: You may or may not be using git to track this project but it's always good practice to do this anyway.
 
 <br>
+
 Next, we'll want to install the npm packages we'll need to work with gulp. For this basic gulp setup, we'll be installing a package to compile our css to scss, add auto-prefixers to our compiled css, minify our css, and minify our javascrip. So here are the packages we'll be installing. I'll link the individual packages to their documentation on the gulp.js website:
 
 <br>
