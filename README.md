@@ -17,7 +17,7 @@ I'm going to take you through setting up a basic gulpfile for your own projects 
 <br>
 <br>
 
-## - Prerequisites
+## Prerequisites
 
 To get the most out of this content, it is advised you have a decent understanding of JavaScript as well as a basic understanding of Node.js and npm. If those topics aren't familiar to you or need a refresher, I've provided some links to Treehouse resources blow 👇🏼
 
@@ -42,37 +42,30 @@ I encourage you to read through this README.md file and follow along in your own
 On your desktop (or wherever you'd like to store your project), create a new folder. Let's call it `gulpfile-setup`. Once done, open it up in your text editor. Next we'll need to open up the terminal. Make sure you're inside your new project folder. To get things started, we'll need a `package.json` file. We can set that up pretty easily by running `npm init -y`
 
 <br>
-<br>
 
 <img align="center" src="./assets/02-npm-init.png">
 
-<br>
 <br>
 
 You'll notice a `package.json` file is automatically generated for you. Don't worry about it's contents as that isn't too important for this guide. It should look pretty similar to this:
 
 <br>
-<br>
 
 <img align="center" src="./assets/03-package.png">
 
 <br>
-<br>
 
 Next, we'll need to install some packages for gulp via npm. This will create a `node_modules` folder inside our project folder. Generally, this folder will have lots of packages inside and is usually not a good idea to be tracked with git. So let's first create a `.gitignore` file inside our project.Once created, we can ignore our node modules folder by writing `./node_modules`
 
-<br>
 <br>
 
 <img align="center" src="./assets/04-node-modules.png">
 ⭐ Pro tip: You may or may not be using git to track this project but it's always good practice to do this anyway.
 
 <br>
-<br>
 
 Next, we'll want to install the npm packages we'll need to work with gulp. For this basic gulp setup, we'll be installing a package to compile our css to scss, add auto-prefixers to our compiled css, minify our css, and minify our javascrip. So here are the packages we'll be installing. I'll link the individual packages to their documentation on the gulp.js website:
 
-<br>
 <br>
 
 1. gulp
