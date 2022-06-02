@@ -1,1 +1,1 @@
-![](./assets/gulpfile-setup-logo-xl.png)
+![](./assets/01-header.png)
