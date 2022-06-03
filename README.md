@@ -55,12 +55,12 @@ You'll notice a `package.json` file is automatically generated for you. Don't wo
 
 <br>
 
-Next, we'll need to install some packages for gulp via npm. This will create a `node_modules` folder inside our project folder. Generally, this folder will have lots of packages inside and is usually not a good idea to be tracked with git. So let's first create a `.gitignore` file inside our project.Once created, we can ignore our node modules folder by writing `./node_modules`
+Next, we'll need to install some packages for gulp via npm. This will create a **_node_modules_** folder inside our project folder. Generally, this folder will have lots of packages inside and is usually not a good idea to be tracked with git. So let's first create a `.gitignore` file inside our project.Once created, we can ignore our node modules folder by writing `./node_modules`
 
 <br>
 
 <img align="center" src="./assets/04-node-modules.png">
-⭐ Pro tip: You may or may not be using git to track this project but it's always good practice to do this anyway.
+⭐ Pro tip: You may or may not be using git to track this project but it's always good practice to ignore your node modules folder.
 
 <br>
 <br>
@@ -69,9 +69,98 @@ Next, we'll want to install the npm packages we'll need to work with gulp. For t
 
 <br>
 
-1. gulp
+1. [gulp](https://www.npmjs.com/package/gulp)
 2. [gulp-sass](https://www.npmjs.com/package/gulp-sass)
 3. [sass](https://www.npmjs.com/package/sass)
-4. gulp-clean-css (minifies our css) -
-5. gulp-autoprefixer (adds auto-prefixers to our css) -
-6. gulp-terser (minifies our javascript) -
+4. [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) (minifies our css)
+5. [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) (adds auto-prefixers to our css)
+6. [gulp-terser](https://www.npmjs.com/package/gulp-terser) (minifies our javascript)
+
+<br>
+<br>
+
+You can install npm packages by running `npm install {package name}` To install them, in your terminal, make sure you're in your project's root directory. Then write the following:
+
+`npm install gulp gulp-sass sass gulp-clean-css gulp-autoprefixer gulp-terser`
+
+<br>
+<br>
+
+<img align="center" src="./assets/05-npm-packages.png">
+
+<br>
+<br>
+
+Be sure to check your terminal's output message to see if all the packages have been installed successfully. Additionaly, you can check your project's **_package.json_** file under **_dependencies_**:
+
+<br>
+<br>
+
+<img align="center" src="./assets/06-dependencies.png">
+
+<br>
+
+> Don't worry if your package's versions are different from what you see above vs your package.json file.
+
+<br>
+<br>
+
+Now that we have all the packages we need, let's setup our gulpfile. 😎
+
+<br>
+
+We can start by creating a new file in our project's directory: `gulpfile.js`
+We will need to use some of the APIs that we have access to from our **_gulp_** package. We can create variables for them.
+
+<br>
+
+`const { src, dest, series, watch } = require('gulp');`
+
+<br>
+
+<img align="center" src="./assets/07-gulp-packages.png">
+
+<br>
+
+Basically what we're doing here is destructuring these APIs from the gulp package into variables; `src`, `dest`, `series`, & `watch`.
+
+Let's go over these briefly before we use them:
+
+`src API`:
+[https://gulpjs.com/docs/en/api/src](https://gulpjs.com/docs/en/api/src/)
+
+Reading the above documentation may confuse you but basically what this does is gives us a way to give our gulpfile a source (src) directory/file to listen and check for changes. This will be clearer when we get into writing out the rest of our gulpfile.
+
+`dest API`:
+[https://gulpjs.com/docs/en/api/dest](https://gulpjs.com/docs/en/api/dest)
+
+This is much like the src API but instead of giving it a source directory or file, we give it a destination directory. Basically, when we access files from source and make our changes, where do we want to put it? That's when we choose a destination. Makes sense?
+
+`series API`:
+[https://gulpjs.com/docs/en/api/series](https://gulpjs.com/docs/en/api/series)
+
+The series API is an easy one. From gulp's documentation: **_Combines task functions and/or composed operations into larger operations that will be executed one after another, in sequential order._** Which basically means we run a series of functions one after another as parameters. For example: `series(func1, func2, func3)`
+
+`watch API`:
+[https://gulpjs.com/docs/en/api/src](https://gulpjs.com/docs/en/api/src/)
+
+The watch API is another easy one. This one takes two parameters. The files/folder you want to watch for changes and then a task you want to run when those changes happen. Let's get started writing our gulpfile so we can see this in action.
+
+Now that we can access our APIs from **gulp**, let's grab our npm packages we installed and assign them to variables.
+
+<br>
+
+<img align="left" src="./assets/psst.png" width="200">
+
+<br>
+
+To make this easier to understand and organized, I will keep all the packages associated with the styles for our project separate from the packages for our scripts.
+
+These variables will act as methods (functions) for our packages. If this doesn't make sense to you, no worries! I will explain this as we go.
+
+<br>
+<br>
+
+`const scss = require('gulp-sass')(require('sass'))`
+
+You can name this variable anything you'd like. I chose to name is `scss` becasue it will handle compiling our scss code to css for us. This
