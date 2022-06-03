@@ -158,6 +158,8 @@ To make this easier to understand and organized, I will keep all the packages as
 
 These variables will act as methods (functions) for our packages. If this doesn't make sense to you, no worries! I will explain this as we go.
 
+<br>
+
 Also, you can name these variables anything you want. What I name them is just how I prefer to name them.
 
 <br>
