@@ -163,8 +163,155 @@ These variables will act as methods (functions) for our packages. If this doesn'
 Also, you can name these variables anything you want. What I name them is just how I prefer to name them.
 
 <br>
+
+`const scss = require('gulp-sass')(require('sass'));`
+
+This is our **gulp-sass** package that also requires the \*_sass_ package to work. This will compile our scss code into css for us.
+
 <br>
 
-`const scss = require('gulp-sass')(require('sass'))`
+`const autoPrefixer = require('gulp-autoprefixer');`
 
-You can name this variable anything you'd like. I chose to name is `scss` becasue it will handle compiling our scss code to css for us. This
+This is the **autoprefixer** package that will add prefixers to our styles.
+
+<br>
+
+`const cssMinify = require('gulp-clean-css');`
+
+The \*_clean-css_ package will minify our compiled css.
+
+<br>
+<br>
+
+For our JavaScript, we'll just be minifying it.
+
+`const jsMinify = require('gulp-terser');`
+
+<br>
+<br>
+
+If everything was written correctly, your **gulpfile.js** should resemble this:
+
+<img align="center" src="./assets/09-gulp.png">
+
+<br>
+<br>
+
+Great! Now let's start using everything. We will want to setup functions for our styles and scripts. This is how I've laid out my code:
+
+<br>
+
+<img align="center" src="./assets/10-gulp.png">
+
+<br>
+
+The next step would be to give these functions a source directory/file, utilize our gulp methods, and then drop them in a destination directory. For this part, I recommend you set your folder structure up just as I have to make things easier. You can adjust this to your liking once you're more comfortable working with your gulpfile. Here is my directory structure:
+
+<br>
+
+<img align="center" src="./assets/11-folders.png">
+
+You can see in my project's root directory I have the following:
+
+1. frontend (folder)
+2. node_modules (folder)
+3. .gitignore (file)
+4. gulpfile.js (file)
+5. package-lock.json (file) (this is auto-generated)
+6. package.json (file)
+
+Inside my **frontend** folder I have two more folders:
+
+1. dist
+2. src
+
+(these are just what I decided to call them. You can name these anything but this is a very common naming convention).
+
+<br>
+
+Let's talk about these two folders. **src** will be where we work out of. This will have all of our scripts, styles, images, etc. When we need to write any styles or scripts, this is the folder we do it in. This will be what we link in our gulp's **src** method soon. **dist** will be where we have gulp send our files once we add things like our compiled css, prefixers and minified versions of our code. We will use our gulp's **dest** method for this. This may seem confusing right now but it will make sense shortly.
+
+Let's start writing in our `styles()` function.
+
+<br>
+<br>
+
+Basically, what we want from this function is to look for any of our scss partials, compile it to css, add prefixers, minify it, then throw it into our \*_dist_ folder. So let's get started!
+
+<br>
+
+These functions will only do one main thing. **_Return_** our finished product. So immediately inside the function we will write a return statement. What it will return is our source directory/file and then we'll want to chain on everything else (our gulp API methods and our destination directory). That will look something like this:
+
+`return src('./frontend/src/styles/');`
+
+For scss we will want to watch for all folders as well as files that end in `.scss` right? So what we can do is add `**/*.scss` after the path to our src's styles folder.
+
+`return src('./frontend/src/styles/**/*.scss');`
+
+`**` tells gulp to include any folder in this directory (styles/) and `*.scss` tells it to grab any file in any of those folders with the `.scss` extension.
+
+<img align="center" src="./assets/12-gulp-functions.png">
+
+<br>
+
+Now we'll want to start chaining our methods to this return statement so make just not to include a `;` at the end of what we've written so far.
+
+To chain on another method we can use `.pipe()`;
+
+<br>
+<br>
+
+Next, we will want to chain on our scss compiler. Remember we set up a variable named **scss** earlier? I mentioned that those variables will be methods (functions) for our gulp packages. So when we need to use it, the standard `method()` syntax is required. So chaining on our **scss** method would look something like this:
+
+`.pipe(scss())`
+
+We basically put the **scss** method inside the **pipe** method. So now let's add in our other methods.
+
+`.pipe(scss())`
+
+`.pipe(autoPrefixer())`
+
+`.pipe(cssMinify())`
+
+> You will need to add 'last 2 versions' (as a string) to the `autoPrefixer()` method as a parameter. `autoPrefixer('last 2 versions')`
+
+<br>
+
+<img align="center" src="./assets/13-gulp-functions.png">
+
+<br>
+
+Now all that's left to do is add our `dest()` method and give it the path to our **dist** folder.
+
+`.pipe(dest('./frontend/dist/styles/))`
+
+> Even though we didn't create a **_styles_** folder inside our dist folder, it will create it for us.
+
+Your final code for the **styles** function should look like this:
+
+<img align="center" src="./assets/14-gulp-functions.png">
+
+<br>
+<br>
+<br>
+
+## ⭐ Give it a try!
+
+<br>
+
+Why not take a stab at the **scripts** function? This should be very straigt-foward if you were able to follow along thus far. Give it a shot! in... **3...2...1.. GO!**
+
+<br>
+<br>
+<br>
+
+<img align="right" src="./assets/celebrate.png" width="100">
+
+How did you do? Were you able to figure it out on your own? Awesome!! Great work! It's pretty simple right? Just calling our **jsMinify** method we set up by chaining it to our **src** and then chaining on our **dist**!
+
+<br>
+<br>
+
+<img align="left" src="./assets/oops.png" width="100">
+
+Uh oh, couldn't figure it out? No worries! Let's go over how to set it up. It's really pretty simple. 🙂
