@@ -152,13 +152,13 @@ Now that we can access our APIs from **gulp**, let's grab our npm packages we in
 
 <img align="left" src="./assets/psst.png" width="200">
 
-<br>
-
 Side note:
 
 To make this easier to understand and organized, I will keep all the packages associated with the styles for our project separate from the packages for our scripts.
 
 These variables will act as methods (functions) for our packages. If this doesn't make sense to you, no worries! I will explain this as we go.
+
+Also, you can name these variables anything you want. What I name them is just how I prefer to name them.
 
 <br>
 <br>
