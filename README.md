@@ -295,7 +295,7 @@ Your final code for the **styles** function should look like this:
 <br>
 <br>
 
-## ⭐ Give it a try!
+## ⭐ Give it a try - Try setting up the scripts file on your own! ⭐
 
 <br>
 
@@ -303,15 +303,21 @@ Why not take a stab at the **scripts** function? This should be very straigt-fow
 
 <br>
 <br>
+
+How did you do? Were you able to figure it out on your own? Awesome!! Great work! If not, no worries! We'll go over how to set it up. It's really pretty simple. Just like with our **styles** function, we need to give it a `src` and `dest` and chain our methods inbetween. In this case, our only method is the `jsMinify`.
+
+Your **src** should look like this:
+
+`return src('./frontend/src/scripts/**/*.js')`
+
+Then we chain our minifyer variables/method:
+
+`.pipe(jsMinify())`
+
+Then we chain on our destiniation:
+
+`.pipe(dest('./frontend/dist/scripts/'))`;
+
 <br>
 
-<img align="right" src="./assets/celebrate.png" width="100">
-
-How did you do? Were you able to figure it out on your own? Awesome!! Great work! It's pretty simple right? Just calling our **jsMinify** method we set up by chaining it to our **src** and then chaining on our **dist**!
-
-<br>
-<br>
-
-<img align="left" src="./assets/oops.png" width="100">
-
-Uh oh, couldn't figure it out? No worries! Let's go over how to set it up. It's really pretty simple. 🙂
+<img align="center" src="./assets/15-gulp-functions.png">
