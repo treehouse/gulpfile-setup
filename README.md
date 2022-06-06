@@ -10,7 +10,7 @@
 
 ## **Introduction to gulp.js**
 
-What is gulp? According to their homepage ([gulpjs.com](https://www.gulpjs.com)), it's _a toolkit to automate & enhance your workflow._ What exactly does that mean? Well, for medium to large sized projects you may want to have a folder with all your styles and scripts minified. This can significantly decrease file sizes and is usually best practice when deploying your app. Gulp can do all the hard work for you. It can throw all your final code into a new folder, minify it, even adding extra things to your make your code even better!
+What is gulp? According to their homepage ([gulpjs.com](https://www.gulpjs.com)), it's _a toolkit to automate & enhance your workflow._ What exactly does that mean? Well, for medium to large sized projects you may want to have a folder with all your styles and scripts minified. This can significantly decrease file sizes and is usually best practice when deploying your app. Gulp can do all the hard work for you. It can throw all your final code into a new folder, minify it, even adding extra things to make your code even better!
 
 I'm going to take you through setting up a basic gulpfile for your own projects and apps. Once we're done, you should have a clear understanding of how gulp works as well as adding even more features to making your gulpfile even more powerful. Let's get started!
 
@@ -19,7 +19,7 @@ I'm going to take you through setting up a basic gulpfile for your own projects 
 
 ## Prerequisites
 
-To get the most out of this content, it is advised you have a decent understanding of JavaScript as well as a basic understanding of Node.js and npm. If those topics aren't familiar to you or need a refresher, I've provided some links to Treehouse resources blow 👇🏼
+To get the most out of this content, it is advised you have a decent understanding of JavaScript as well as a basic understanding of Node.js and npm. If those topics aren't familiar to you or you need a refresher, I've provided some links to Treehouse resources below. 👇🏼
 
 1. [JavaScript Basics](https://teamtreehouse.com/library/javascript-basics)
 2. [Node.js Basics](https://teamtreehouse.com/library/nodejs-basics-3)
@@ -30,7 +30,7 @@ To get the most out of this content, it is advised you have a decent understandi
 
 ## Getting Started
 
-I encourage you to read through this README.md file and follow along in your own text editor. If you get stuck, you can take a look at the code in this repository. Ready? Let's go! 🚀
+I encourage you to read through this README.md file and follow along in your own text editor. If you get stuck, you can take a look at the final code in this repository. Ready? Let's go! 🚀
 
 <br>
 <br>
@@ -39,7 +39,7 @@ I encourage you to read through this README.md file and follow along in your own
 
 <br>
 
-On your desktop (or wherever you'd like to store your project), create a new folder. Let's call it `gulpfile-setup`. Once done, open it up in your text editor. Next we'll need to open up the terminal. Make sure you're inside your new project folder. To get things started, we'll need a `package.json` file. We can set that up pretty easily by running `npm init -y`
+On your desktop (or wherever you'd like to store your project), create a new folder. Let's call it **gulpfile-setup**. Once created, open it up in your text editor. Next we'll need to open up the terminal. Make sure you're inside your new project's folder. To get things started, we'll need a `package.json` file. We can set that up pretty easily by running `npm init -y` in the terminal.
 
 <br>
 
@@ -55,7 +55,7 @@ You'll notice a `package.json` file is automatically generated for you. Don't wo
 
 <br>
 
-Next, we'll need to install some packages for gulp via npm. This will create a **_node_modules_** folder inside our project folder. Generally, this folder will have lots of packages inside and is usually not a good idea to be tracked with git. So let's first create a `.gitignore` file inside our project.Once created, we can ignore our node modules folder by writing `./node_modules`
+Next, we'll need to install some packages for gulp via npm. This will create a **node_modules** folder inside our project folder. Generally, this folder will have lots of packages inside and is usually not a good idea to be tracked with git. So let's first create a `.gitignore` file inside our project.Once created, we can ignore our node modules folder by writing `./node_modules`
 
 <br>
 
@@ -65,7 +65,7 @@ Next, we'll need to install some packages for gulp via npm. This will create a *
 <br>
 <br>
 
-Next, we'll want to install the npm packages we'll need to work with gulp. For this basic gulp setup, we'll be installing a package to compile our css to scss, add auto-prefixers to our compiled css, minify our css, and minify our javascrip. So here are the packages we'll be installing. I'll link the individual packages to their documentation on the gulp.js website:
+Next, let's install the npm packages we'll need to work with gulp. For this basic gulp setup, we'll be installing a package to compile our css to scss, add auto-prefixers to our compiled css, minify our css, and minify our javascrip. So here are the packages we'll be installing. I'll link the individual packages to their documentation on the gulp.js website:
 
 <br>
 
@@ -79,7 +79,7 @@ Next, we'll want to install the npm packages we'll need to work with gulp. For t
 <br>
 <br>
 
-You can install npm packages by running `npm install {package name}` To install them, in your terminal, make sure you're in your project's root directory. Then write the following:
+You can install npm packages by running `npm install {package name}`. To install them, in your terminal, make sure you're in your project's root directory. Then type the following:
 
 `npm install gulp gulp-sass sass gulp-clean-css gulp-autoprefixer gulp-terser`
 
@@ -91,7 +91,7 @@ You can install npm packages by running `npm install {package name}` To install 
 <br>
 <br>
 
-Be sure to check your terminal's output message to see if all the packages have been installed successfully. Additionaly, you can check your project's **_package.json_** file under **_dependencies_**:
+Be sure to check your terminal's output message to see if all the packages have been installed successfully. Additionaly, you can check your project's **package.json** file under **dependencies**:
 
 <br>
 <br>
@@ -100,7 +100,7 @@ Be sure to check your terminal's output message to see if all the packages have 
 
 <br>
 
-> Don't worry if your package's versions are different from what you see above vs your package.json file.
+> Don't worry if your package's versions are different from what you see above.
 
 <br>
 <br>
@@ -109,8 +109,8 @@ Now that we have all the packages we need, let's setup our gulpfile. 😎
 
 <br>
 
-We can start by creating a new file in our project's directory: `gulpfile.js`
-We will need to use some of the APIs that we have access to from our **_gulp_** package. We can create variables for them.
+We can start by creating a new file in our project's root directory: **gulpfile.js**.
+We will need to use some of the APIs that we have access to from **gulp**. We can create variables for them.
 
 <br>
 
@@ -134,7 +134,7 @@ Reading the above documentation may confuse you but basically what this does is 
 `dest API`:
 [https://gulpjs.com/docs/en/api/dest](https://gulpjs.com/docs/en/api/dest)
 
-This is much like the src API but instead of giving it a source directory or file, we give it a destination directory. Basically, when we access files from source and make our changes, where do we want to put it? That's when we choose a destination. Makes sense?
+This is much like the src API but instead of giving it a source directory or file, we give it a destination directory. Basically, when we access files from source and make our changes, where do we want to put it after? That's when we choose a destination. Makes sense?
 
 `series API`:
 [https://gulpjs.com/docs/en/api/series](https://gulpjs.com/docs/en/api/series)
@@ -144,7 +144,7 @@ The series API is an easy one. From gulp's documentation: **_Combines task funct
 `watch API`:
 [https://gulpjs.com/docs/en/api/src](https://gulpjs.com/docs/en/api/src/)
 
-The watch API is another easy one. This one takes two parameters. The files/folder you want to watch for changes and then a task you want to run when those changes happen. Let's get started writing our gulpfile so we can see this in action.
+The watch API is another easy one. This one takes two parameters. The files/folder you want to watch changes for and then a task you want to run when those changes happen. Let's get started writing our gulpfile so we can see this in action.
 
 Now that we can access our APIs from **gulp**, let's grab our npm packages we installed and assign them to variables.
 
@@ -166,19 +166,19 @@ Also, you can name these variables anything you want. What I name them is just h
 
 `const scss = require('gulp-sass')(require('sass'));`
 
-This is our **gulp-sass** package that also requires the \*_sass_ package to work. This will compile our scss code into css for us.
+This is our **gulp-sass** package that also requires the **sass** package to work. This will compile our scss code into css for us.
 
 <br>
 
 `const autoPrefixer = require('gulp-autoprefixer');`
 
-This is the **autoprefixer** package that will add prefixers to our styles.
+This is the **autoprefixer** package that will add prefixers to our compiled css.
 
 <br>
 
 `const cssMinify = require('gulp-clean-css');`
 
-The \*_clean-css_ package will minify our compiled css.
+The **clean-css** package will minify our compiled css.
 
 <br>
 <br>
