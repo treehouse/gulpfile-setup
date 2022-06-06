@@ -304,20 +304,125 @@ Why not take a stab at the **scripts** function? This should be very straigt-fow
 <br>
 <br>
 
-How did you do? Were you able to figure it out on your own? Awesome!! Great work! If not, no worries! We'll go over how to set it up. It's really pretty simple. Just like with our **styles** function, we need to give it a `src` and `dest` and chain our methods inbetween. In this case, our only method is the `jsMinify`.
+How did you do? Were you able to figure it out on your own? Awesome!! Great work! If not, no worries! We'll go over how to set it up. It's really pretty simple. Just like with our **styles** function, we need to give it a source and destination and chain our methods inbetween. In this case, our only method is the `jsMinify`.
 
-Your **src** should look like this:
+Your **source** should look like this:
 
 `return src('./frontend/src/scripts/**/*.js')`
 
-Then we chain our minifyer variables/method:
+Then we chain our minifyer method:
 
 `.pipe(jsMinify())`
 
-Then we chain on our destiniation:
+Then we chain on our **destiniation**:
 
 `.pipe(dest('./frontend/dist/scripts/'))`;
 
 <br>
 
 <img align="center" src="./assets/15-gulp-functions.png">
+
+<br>
+<br>
+
+Great! Now we have our functions set up. Just like you're probably already used to, functions actually don't do anything unless we call them, right? We'll want to call these two functions in a couple of ways. Once initially when the gulpfile is ran and then again each time a change is detected. To do the latter, we'll need to set up a watch task using the **watch** method that we imported from from gulp on the first line of our **gulpfile.js** code. Let's get started.
+
+<br>
+<br>
+
+Let's set up a new function and name is `watchTask`.
+
+This function will do one thing, call our **watch** method we imported from gulp.
+
+`function watchTask( watch(); );`
+
+The **watch** method takes two parameters. The first is where we would like to watch for changes. In this case we want to watch for changes in **_both_** our styles and scripts folder. So our first parameter can be an array pointer to those locations.
+
+`watch([ './frontend/src/styles/**/*.scss', './frontend/src/scripts/**/*.js' ])`
+
+our next parameter is what we want to do when our **watch** method detects a chance. We'll want to call our functions, right? So let's call them. We'll need to run a series of functions. (**styles** and **scripts**). So now we'll use the **series** method we imported from gulp. That will look like this:
+
+`series(styles, scripts)`
+
+Pretty simple, right? Here is the finished code for our **watchTask** function:
+
+<br>
+
+<img align="center" src="./assets/16-watch.png">
+
+The last part of this gulpfile is exporting all of our functions. We will use the series method for this again. That snippet of code will look like this:
+
+`exports.default = series(styles, scripts, watchTask);`
+
+<br>
+
+<img align="center" src="./assets/17-export.png">
+
+<br>
+<br>
+
+Here is a look at the full code incase something in your application isn't working and you need a reference:
+
+<img align="center" src="./assets/18-full-code.png">
+
+<img align="right" src="./assets/celebrate.png" width="200">
+
+<br>
+<br>
+
+There we have it! You've written your first gulpfile! Feel free to checkout the gulp documentation for other helpful plugins like compressing images or even using babel. Now, let's see how we can run this gulpfile.
+
+<br>
+<br>
+
+Go ahead and open up your **package.json** file. In there you'll see a "scripts" object with a "test" key. You can actually delete "test" and it's value. Instead, create a new property called "start". For the value, write "**npm install && gulp**". **npm install** will install all of your packages from your package.json's dependencies. (This is already done, but I like to keep this in my **start** command so that I install all my packages incase I am downloading this from a repo.) **gulp** will run your gulpfile.
+
+Should look like this if done correctly:
+
+<img align="center" src="./assets/19-package-start.png">
+
+<br>
+<br>
+
+Next, we can open up our terminal and run `npm start`.
+
+<img align="center" src="./assets/20-npm.png">
+
+<br>
+
+If all goes well, you should see an output very similar to this in your terminal:
+
+<img align="center" src="./assets/21-terminal.png">
+
+<br>
+<br>
+Woohoo! We now have a working gulpfile!
+To see it in action, let's create an scss stylesheet in our src folder. 
+inside `frontend/src/styles/` create a file `app.scss` for example. Then add some standard css like so:
+
+<img align="center" src="./assets/22-scss.png">
+
+<br>
+
+Hit save and then you should see a dist folder with a styles folder inside. Inside that styles folder you should see an \*_app.scss_ file. The contents should have prefixers added to it and it should also be minified! Pretty cool, right?
+
+<img align="center" src="./assets/23-css.png">
+
+<br>
+
+Now, lets give this a try with our scripts. Let's create a file named **app.js** inside of `/frontend/src/scripts/`.
+
+We can write a simple JS object:
+
+<img align="center" src="./assets/24-js.png">
+
+<br>
+
+We should see it in `/frontend/dist/scripts/app.js`:
+
+<img align="center" src="./assets/25-js-min.png">
+
+<br>
+<br>
+
+There you have it! A gulpfile that works for to autimate your workflow for you. This is a super simple gulpfile. How you craft your own personal gulpfile is completely up to you and what type of project you're building. Have fun with it and if you create something really neat, don't be shy! Share with the community via Slack 🙂
