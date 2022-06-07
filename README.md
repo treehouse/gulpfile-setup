@@ -430,4 +430,4 @@ We should see it in `/frontend/dist/scripts/app.js`:
 <br>
 <br>
 
-There you have it! A gulpfile that works to automate your workflow for you. This is a super simple gulpfile. How you craft your own personal gulpfile is completely up to you and what type of project you're building. Have fun with it and if you create something really neat, don't be shy! Share with the community via Slack 🙂
+There you have it! A gulpfile that works to automate your workflow for you. This is a super simple gulpfile. How you craft your own personal gulpfile is completely up to you and what type of project you're building. Have fun with it and if you create something really neat, don't be shy! Share with the community via Slack. 🙂
