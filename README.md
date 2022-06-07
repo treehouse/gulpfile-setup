@@ -242,11 +242,11 @@ Basically, what we want from this function is to look for any of our scss partia
 
 These functions will only do one main thing. **_Return_** our finished product. So immediately inside the function we will write a return statement. What it will return is our source directory/file and then we'll want to chain on everything else (our gulp API methods and our destination directory). That will look something like this:
 
-`return src('./frontend/src/styles/');`
+`return src('./frontend/src/styles/')`
 
 For scss we will want to watch for all folders as well as files that end in `.scss` right? So what we can do is add `**/*.scss` after the path to our src's styles folder.
 
-`return src('./frontend/src/styles/**/*.scss');`
+`return src('./frontend/src/styles/**/*.scss')`
 
 `**` tells gulp to include any folder in this directory (styles/) and `*.scss` tells it to grab any file in any of those folders with the `.scss` extension.
 
@@ -254,7 +254,7 @@ For scss we will want to watch for all folders as well as files that end in `.sc
 
 <br>
 
-Now we'll want to start chaining our methods to this return statement so make just not to include a `;` at the end of what we've written so far.
+Now we'll want to start chaining our methods to this return statement so make sure not to include a `;` at the end of what we've written so far.
 
 To chain on another method we can use `.pipe()`;
 
@@ -299,7 +299,7 @@ Your final code for the **styles** function should look like this:
 
 <br>
 
-Why not take a stab at the **scripts** function? This should be very straigt-foward if you were able to follow along thus far. Give it a shot! in... **3...2...1.. GO!**
+Why not take a stab at the **scripts** function? This should be very straight-forward if you were able to follow along thus far. Give it a shot! in... **3...2...1.. GO!**
 
 <br>
 <br>
