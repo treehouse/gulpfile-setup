@@ -65,7 +65,7 @@ Next, we'll need to install some packages for gulp via npm. This will create a *
 <br>
 <br>
 
-Next, let's install the npm packages we'll need to work with gulp. For this basic gulp setup, we'll be installing a package to compile our css to scss, add auto-prefixers to our compiled css, minify our css, and minify our javascrip. So here are the packages we'll be installing. I'll link the individual packages to their documentation on the gulp.js website:
+Next, let's install the npm packages we'll need to work with gulp. For this basic gulp setup, we'll be installing a package to compile our css to scss, add auto-prefixers to our compiled css, minify our css, and minify our javascript. So here are the packages we'll be installing. I'll link the individual packages to their documentation on the gulp.js website:
 
 <br>
 
@@ -91,7 +91,7 @@ You can install npm packages by running `npm install {package name}`. To install
 <br>
 <br>
 
-Be sure to check your terminal's output message to see if all the packages have been installed successfully. Additionaly, you can check your project's **package.json** file under **dependencies**:
+Be sure to check your terminal's output message to see if all the packages have been installed successfully. Additionally, you can check your project's **package.json** file under **dependencies**:
 
 <br>
 <br>
@@ -236,7 +236,7 @@ Let's start writing in our `styles()` function.
 <br>
 <br>
 
-Basically, what we want from this function is to look for any of our scss partials, compile it to css, add prefixers, minify it, then throw it into our \*_dist_ folder. So let's get started!
+Basically, what we want from this function is to look for any of our scss partials, compile it to css, add prefixers, minify it, then throw it into our **dist**\_\*\* folder. So let's get started!
 
 <br>
 
@@ -304,7 +304,7 @@ Why not take a stab at the **scripts** function? This should be very straight-fo
 <br>
 <br>
 
-How did you do? Were you able to figure it out on your own? Awesome!! Great work! If not, no worries! We'll go over how to set it up. It's really pretty simple. Just like with our **styles** function, we need to give it a source and destination and chain our methods inbetween. In this case, our only method is the `jsMinify`.
+How did you do? Were you able to figure it out on your own? Awesome!! Great work! If not, no worries! We'll go over how to set it up. It's really pretty simple. Just like with our **styles** function, we need to give it a source and destination and chain our methods in-between. In this case, our only method is the `jsMinify`.
 
 Your **source** should look like this:
 
@@ -314,7 +314,7 @@ Then we chain our minifyer method:
 
 `.pipe(jsMinify())`
 
-Then we chain on our **destiniation**:
+Then we chain on our **destination**:
 
 `.pipe(dest('./frontend/dist/scripts/'))`;
 
@@ -404,7 +404,7 @@ inside `frontend/src/styles/` create a file `app.scss` for example. Then add som
 
 <br>
 
-Hit save and then you should see a dist folder with a styles folder inside. Inside that styles folder you should see an \*_app.scss_ file. The contents should have prefixers added to it and it should also be minified! Pretty cool, right?
+Hit save and then you should see a dist folder with a styles folder inside. Inside that styles folder you should see an **app.scss**\_\*\* file. The contents should have prefixers added to it and it should also be minified! Pretty cool, right?
 
 <img align="center" src="./assets/23-css.png">
 
